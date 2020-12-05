@@ -32,6 +32,9 @@
     "COMMAND_HAND_LER": {
       "description": "specify command handler that should be used for the plugins",
       "required": false
+    },
+    "SUDO_USERS": {
+      "description": "add sudo users"
     }
   },
   "addons": [{
