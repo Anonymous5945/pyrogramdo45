@@ -13,7 +13,7 @@ from pyrobot.helper_functions.cust_p_filters import (
 
 @PyroBot.on_message(
     filters.command(["warns"], COMMAND_HAND_LER) &
-    admin_fliter
+    admin_fliter & sudo_filter
 )
 async def check_warns_of_user(client: PyroBot, msg: Message):
     replied = msg.reply_to_message
