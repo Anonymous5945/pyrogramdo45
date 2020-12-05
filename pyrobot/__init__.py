@@ -50,7 +50,7 @@ WARN_DATA_ID = int(Config.WARN_DATA_ID)
 WARN_SETTINGS_ID = int(Config.WARN_SETTINGS_ID)
 # define the "types" that should be uplaoded as streamable
 # copied from SpEcHiDe/UniBorg
-TL_VID_STREAM_TYPES = ("MP4", "WEBM", "MKV")
+TL_VID_STREAM_TYPES = ("MP4", "WEBM")
 TL_MUS_STREAM_TYPES = ("MP3", "WAV", "FLAC")
 TL_FF_NOAQ_TYPES = ("WEBP")
 A_PIN_MESSAGE_ID = int(Config.A_PIN_MESSAGE_ID)
