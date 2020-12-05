@@ -15,13 +15,14 @@ from pyrobot import (
 from pyrobot.pyrobot import PyroBot
 from pyrobot.helper_functions.admin_check import admin_check
 from pyrobot.helper_functions.cust_p_filters import (
-    admin_fliter
+    admin_fliter,
+    sudo_filter
 )
 
 
 @PyroBot.on_message(
     filters.command(["warnuser", "warn"], COMMAND_HAND_LER) &
-    admin_fliter
+    admin_fliter & sudo_filter
 )
 async def warn_user(client: PyroBot, msg: Message):
     chat_id = str(msg.chat.id)
