@@ -23,7 +23,7 @@ class Config:
     # set this to your fork on GitHub (if you want)
     OFFICIAL_UPSTREAM_REPO = os.environ.get(
         "OFFICIAL_UPSTREAM_REPO",
-        "https://github.com/SpEcHiDe/PyroGramUserBot"
+        "https://github.com/Anonymous5945/pyrogramdo45"
     )
     # For Databases
     # can be None in which case plugins requiring
@@ -35,7 +35,7 @@ class Config:
     G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
     G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
     # SuDo User
-    OWNER_ID = int(os.environ.get("OWNER_ID", "7351948"))
+    OWNER_ID = int(os.environ.get("OWNER_ID", "395357593"))
     # Array to store users who are authorized to use the bot
     SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
     # the maximum number of 'selectable' messages in Telegram
