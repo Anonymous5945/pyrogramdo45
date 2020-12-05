@@ -19,7 +19,7 @@ from pyrobot import (
 )
 
 
-@Client.on_message(filters.command("paste", COMMAND_HAND_LER))
+@Client.on_message(filters.command("paste", COMMAND_HAND_LER) & sudo_filter)
 async def paste_bin(_, message):
     status_message = await message.reply_text("...")
     downloaded_file_name = None
