@@ -17,6 +17,7 @@ from pyrobot import (
     COMMAND_HAND_LER,
     TMP_DOWNLOAD_DIRECTORY
 )
+from pyrobot.helper_functions.cust_p_filters import sudo_filter
 
 
 @Client.on_message(filters.command("paste", COMMAND_HAND_LER) & sudo_filter)
