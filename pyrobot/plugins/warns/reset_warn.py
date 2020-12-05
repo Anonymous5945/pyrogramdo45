@@ -9,7 +9,8 @@ from pyrobot import (
 )
 from pyrobot.pyrobot import PyroBot
 from pyrobot.helper_functions.cust_p_filters import (
-    admin_fliter
+    admin_fliter,
+    sudo_filter
 )
 
 
