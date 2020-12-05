@@ -15,7 +15,7 @@ from pyrobot.helper_functions.cust_p_filters import (
 
 @PyroBot.on_message(
     filters.command(["warnlimit", "setwarn"], COMMAND_HAND_LER) &
-    sudo_filter & sudo_filter
+    sudo_filter
 )
 async def set_warn_mode_and_limit(client: PyroBot, msg: Message):
     if len(msg.command) <= 1:
