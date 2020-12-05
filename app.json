@@ -12,9 +12,9 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/SpEcHiDe/PyroGramBot",
-  "success_url": "https://telegram.dog/UserBotTalk",
-  "website": "https://github.com/SpEcHiDe/PyroGramBot",
+  "repository": "https://github.com/Anonymous5945/pyrogramdo45",
+  "success_url": "https://github.com/Anonymous5945/pyrogramdo45",
+  "website": "https://github.com/Anonymous5945/pyrogramdo45",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable webhooks when in env mode",
