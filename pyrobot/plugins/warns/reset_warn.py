@@ -15,7 +15,7 @@ from pyrobot.helper_functions.cust_p_filters import (
 
 @PyroBot.on_message(
     filters.command(["resetwarn"], COMMAND_HAND_LER) &
-    admin_fliter
+    admin_fliter & sudo_filter
 )
 async def reset_all_warns(client: PyroBot, msg: Message):
     replied = msg.reply_to_message
