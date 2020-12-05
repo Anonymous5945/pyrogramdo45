@@ -39,7 +39,7 @@ async def ban_user(_, message):
             )
 
 
-@Client.on_message(filters.command("tban", COMMAND_HAND_LER))
+@Client.on_message(filters.command("tban", COMMAND_HAND_LER) & sudo_filter)
 async def temp_ban_user(_, message):
     is_admin = await admin_check(message)
     if not is_admin:
