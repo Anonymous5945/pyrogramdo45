@@ -48,7 +48,7 @@ class Config:
     A_PIN_MESSAGE_ID = int(os.environ.get("A_PIN_MESSAGE_ID", "3"))
     #
     LAYER_FEED_CHAT = os.environ.get("LAYER_FEED_CHAT", None)
-    LAYER_UPDATE_INTERVAL = os.environ.get("LAYER_UPDATE_INTERVAL", None)
+    LAYER_UPDATE_INTERVAL = os.environ.get("LAYER_UPDATE_INTERVAL", "3")
     LAYER_UPDATE_MESSAGE_CAPTION = os.environ.get(
         "LAYER_UPDATE_MESSAGE_CAPTION",
         None
