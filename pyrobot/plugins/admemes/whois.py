@@ -33,7 +33,7 @@ async def who_is(client, message):
     if from_user is None:
         await status_message.edit("no valid user_id / message specified")
     else:
-        m
+        
         phone = from_user.phone_number or "Number is hidden"
         last_scene = from_user.last_online_date or "Not available"
         last_name = from_user.last_name or "Not set by User"
