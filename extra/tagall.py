@@ -23,7 +23,7 @@ async def tag_admins(client: PyroBot, m: Message):
         mentions = "**{}** Admins, here!!!"
         admin_count = 0
 
-        async for a in alladmins:
+        async for a in adminslist:
             if a.user.is_bot:
                 pass
             else:
