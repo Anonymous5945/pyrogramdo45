@@ -1,4 +1,4 @@
-from pyrogram import filters
+from pyrogram import Client , filters
 from pyrogram.types import Message
 from pyrobot.pyrobot import PyroBot
 from pyrobot.helper_functions.admin_check import admin_check
@@ -10,8 +10,8 @@ from pyrobot import (
     COMMAND_HAND_LER
 )
 
-@PyroBot.on_message(filters.command(["admin", "admins"], COMMAND_HAND_LER))
-async def tag_admins(client: PyroBot, m: Message):
+@Client.on_message(filters.command(["admin", "admins"], COMMAND_HAND_LER))
+async def tag_admins(client, m):
 
     adminslist = []
 
