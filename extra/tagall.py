@@ -17,12 +17,9 @@ async def tag_admins(client: PyroBot, m: Message):
 
         if m.from_user.id in adminslist:
             # Don't work if called by an admin himself and log this!
-            LOGGER.info(
-                f"Called by admin: {m.from_user.name} ({m.from_user.id}) in Chat: {m.chat.title} ({m.chat.id})"
-            )
             return
 
-        mentions = "Hey **{}** Admins, look here!"
+        mentions = "**{}** Admins, here!!!"
         admin_count = 0
 
         async for a in alladmins:
