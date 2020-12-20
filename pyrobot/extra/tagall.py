@@ -10,7 +10,7 @@ from pyrobot import (
     COMMAND_HAND_LER
 )
 
-@Client.on_message(filters.regex("(?i)@admin(s)?"))
+@Client.on_message(filters.command(["admins", "admin"], COMMAND_HAND_LER))
 async def tag_admins(client, m):
 
     adminslist = []
