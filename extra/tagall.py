@@ -6,8 +6,11 @@ from pyrobot.helper_functions.cust_p_filters import (
     admin_fliter,
     sudo_filter
 )
+from pyrobot import (
+    COMMAND_HAND_LER
+)
 
-@PyroBot.on_message(filters.regex("(?i)@admin(s)?"))
+@PyroBot.on_message(filters.command(["admin", "admins"], COMMAND_HAND_LER))
 async def tag_admins(client: PyroBot, m: Message):
 
     adminslist = []
