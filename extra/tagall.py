@@ -1,5 +1,6 @@
 from pyrogram import filters
 from pyrogram.types import Message
+from pyrobot.pyrobot import PyroBot
 from pyrobot.helper_functions.admin_check import admin_check
 from pyrobot.helper_functions.cust_p_filters import (
     admin_fliter,
