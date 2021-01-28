@@ -19,8 +19,9 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
     # so we do always answer here.
     # and, do any heavy processing later!
     cb_data = callback_query.data
-
-    if cb_data.startswith("ytdl_"):
+    if cb_data == "new-moon-face":
+        await callback_query.message.edit("🎯")
+    elif cb_data.startswith("ytdl_"):
         await callback_query.answer(
             text="please wait, the message will be edited after a SHORT time",
             show_alert=False
