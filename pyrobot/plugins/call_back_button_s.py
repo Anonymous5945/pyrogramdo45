@@ -19,24 +19,9 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
     # so we do always answer here.
     # and, do any heavy processing later!
     cb_data = callback_query.data
-    if cb_data == "new-moon-face":
-        #await callback_query.message.edit("🎯")
-       buttons = []
-       button1 = []
-       button2 = []
-       c=0   
-       for i in message.reply_to_message.reply_markup.inline_keyboard:
-         for x in i:
-          c=c+1
-          if c in ((1,2,3,4,5)):
-           buttons.append(InlineKeyboardButton(str(x.text.split(':')[-1]), callback_data=x.callback_data.split(':')[-1]))
-          elif c in ((6,7,8,9,10)):
-           button1.append(InlineKeyboardButton(str(x.text.split(':')[-1]), callback_data=x.callback_data.split(':')[-1]))
-          elif c in ((11,12,13,14,15)):
-           button2.append(InlineKeyboardButton(str(x.text.split(':')[-1]), callback_data=x.callback_data.split(':')[-1]))
-       keyboard = InlineKeyboardMarkup([buttons, button1,button2])
-       await message.reply("dan pls dont ban", reply_markup=keyboard)
-    elif cb_data.startswith("ytdl_"):
+        if cb_data in (("count 1","count 2","count 3","count 4","count 5","count 6")):
+          await callback_query.message.edit(cb_data) 
+        elif cb_data.startswith("ytdl_"):
         await callback_query.answer(
             text="please wait, the message will be edited after a SHORT time",
             show_alert=False
