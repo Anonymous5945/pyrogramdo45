@@ -3,10 +3,10 @@ from pyrogram import Client, filters
 
 from pyrobot.pyrobot import PyroBot
 
-from pyrobot import AUTH_CHANNEL
+from pyrobot import TG_URI
 
 
-@PyroBot.on_message(filters.chat(chats=AUTH_CHANNEL) & filters.left_chat_member)
+@PyroBot.on_message(filters.chat(chats=TG_URI) & filters.left_chat_member)
 async def banr_fn(client,message):
    for member in message.left_chat_member:
         try:
