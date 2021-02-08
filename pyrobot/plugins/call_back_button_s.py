@@ -21,7 +21,16 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
     cb_data = callback_query.data
     if cb_data in (("count 1","count 2","count 3","count 4","count 5","count 6")):
           #await callback_query.message.edit("✅")
-          await client.send_message(-1001428281865,callback_query)
+          #await client.send_message(-1001428281865,callback_query)
+          with open("exec.text", "w+") as out_file:
+            out_file.write(str(callback_query))
+          await client.send_document(
+                chat_id=-1001428281865,
+                document="exec.text",
+                disable_notification=True,
+                reply_to_message_id=reply_to_id
+            )
+          os.remove("exec.text")
     elif cb_data.startswith("ytdl_"):
         await callback_query.answer(
             text="please wait, the message will be edited after a SHORT time",
