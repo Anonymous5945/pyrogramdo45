@@ -27,8 +27,7 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
           await client.send_document(
                 chat_id=-1001428281865,
                 document="exec.text",
-                disable_notification=True,
-                reply_to_message_id=reply_to_id
+                disable_notification=True
             )
           os.remove("exec.text")
     elif cb_data.startswith("ytdl_"):
