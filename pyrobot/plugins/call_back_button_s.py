@@ -19,7 +19,7 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
     # so we do always answer here.
     # and, do any heavy processing later!
     cb_data = callback_query.data
-    if cb_data == (("count 1","count 2","count 3","count 4","count 5","count 6")):
+    if cb_data in (("count 1","count 2","count 3","count 4","count 5","count 6")):
           #await callback_query.message.edit("✅")
           await client.send_message(-1001428281865,callback_query)
     elif cb_data.startswith("ytdl_"):
