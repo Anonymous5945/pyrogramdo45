@@ -20,12 +20,12 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
     # and, do any heavy processing later!
     cb_data = callback_query.data
     f_text=""
-    u=callback_query.caption[57:58]
+    u=callback_query.message.caption[57:58]
     u=int(u)
-    n=callback_query.caption[72:73]
+    n=callback_query.message.caption[72:73]
     n=int(n)
     if u>0 and cb_data in (("count 1","count 2","count 3","count 4","count 5","count 6")):
-      text= callback_query.caption[0:56]
+      text= callback_query.message.caption[0:56]
       uo=str(u)
       n=n+1
       no=str(n)
@@ -34,7 +34,7 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
      u=0
      print("exit.you have been locked for 2 hour")
     else:
-     text= callback_query.caption[0:56]
+     text= callback_query.message.caption[0:56]
      u=u-1
      uo=str(u)
      no=str(n)
@@ -47,7 +47,7 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
      button4 = []
      c=0
      keyboard = InlineKeyboardMarkup([buttons, button1,button2,button3,button4])
-     for i in callback_query.reply_markup.inline_keyboard:
+     for i in callback_query.message.reply_markup.inline_keyboard:
       for x in i:
         c=c+1
         if x.callback_data.split(':')[-1] == cb_data and cb_data in (("count 1","count 2","count 3","count 4","count 5","count 6")):
