@@ -95,7 +95,7 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
          text=f_text,
          reply_markup=keyboard
         )
-    elif u > 0 and n > 5:
+    if u > 0 and n >=6:
       await callback_query.message.delete()
       rm=InlineKeyboardMarkup([[InlineKeyboardButton("Join Dramaost",url = "http://t.me/DramaOST" )]])
       id=callback_query.from_user.username or callback_query.from_user.first_name
