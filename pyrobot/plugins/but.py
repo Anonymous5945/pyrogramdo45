@@ -14,6 +14,8 @@ from pyrobot.pyrobot import PyroBot
     filters.command(["playgame", "play"], COMMAND_HAND_LER)
 )
 async def user_fn(client: PyroBot, message: Message):
+   try:
+    status_message = await message.reply_text("Processing ...")
     H=[('🎲', 'game-die', 'game-die.png'), ('🎯', 'direct hit', 'direct hit.png'), ('⚽', 'soccer ball', 'soccer ball.png'), ('🥎', 'softball', 'softball.png'), ('🎪', 'circus tent', 'circus tent.png'), ('🎬', 'clapper board', 'clapper board.png'), ('🎹', 'musical keyboard', 'musical keyboard.png'), ('🎤', 'microphone', 'microphone.png'), ('🎭', 'performing arts', 'performing arts.png'), ('🎰', 'slot machine', 'slot machine.png'), ('🙉', 'hear-no-evil', 'hear-no-evil.png'), ('🦊', 'fox', 'fox.png'), ('🐖', 'pig', 'pig.png'), ('🐍', 'snake', 'snake.png'), ('🌹', 'rose', 'rose.png'), ('🧲', 'magnet', 'magnet.png'), ('🛸', 'flying saucer', 'flying saucer.png'), ('🌟', 'glowing star', 'glowing star.png'), ('🎄', 'christmas tree', 'christmas tree.png'), ('🎁', 'wrapped', 'wrapped.png'), ('🍪', 'cookie', 'cookie.png'), ('👀', 'eyes', 'eyes.png'), ('👌', 'ok hand', 'ok hand.png'), ('👻', 'ghost', 'ghost.png'), ('😈', 'devil', 'devil.png'), ('🌚', 'new-moon-face', 'new-moon-face.png'), ('🐬', 'dolphin', 'dolphin.png'), ('🧴', 'lotion-bottle', 'lotion-bottle.png'), ('🖲', 'trackball', 'trackball.png'), ('🥢', 'chopsticks', 'chopsticks.png'), ('🍼', 'baby-bottle', 'baby-bottle.png'), ('🕸', 'spider-web', 'spider-web.png'), ('💳', 'credit card', 'credit card.png'), ('🛏', 'bed', 'bed.png'), ('🎎', 'japanese-dolls', 'japanese-dolls.png'), ('🌧', 'cloud-with-rain', 'cloud-with-rain.png'), ('🛒', 'shopping-cart', 'shopping-cart.png'), ('📄', 'page-facing-up', 'page-facing-up.png'), ('📚', 'books', 'books.png'), ('😝', 'guide', 'guide.png')]
     sam=random.sample(H,6)
     a1= sam[0]
@@ -88,5 +90,10 @@ async def user_fn(client: PyroBot, message: Message):
         caption=t,
         reply_markup=keyboard)
     os.remove("ball.png")
+    await status_message.delete()
+   except ValueError:
+         pass
+         await status_message.edit("Something Wrong !!! Try Again.")
+    
 
      
