@@ -30,7 +30,7 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
       n=n+1
       no=str(n)
       f_text = f"{text}\n{uo} attempt left\n{no} found"
-    if u <= 1 and cb_data not in (("count 1","count 2","count 3","count 4","count 5","count 6")):
+    elif u <= 1 and cb_data not in (("count 1","count 2","count 3","count 4","count 5","count 6")):
      u=0
      print("exit.you have been locked for 2 hour")
     else:
