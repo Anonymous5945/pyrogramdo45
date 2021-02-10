@@ -119,7 +119,11 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
         callback_query.message.chat.id,'/app/welcome.jpg',
         caption=t,
         reply_markup=rm)
-    
+   else:
+     await callback_query.answer(
+            text="Access Denied ⚠️⚠️⚠️",
+            show_alert=True
+        )
    if cb_data.startswith("ytdl_"):
         await callback_query.answer(
             text="please wait, the message will be edited after a SHORT time",
