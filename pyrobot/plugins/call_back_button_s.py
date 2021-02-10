@@ -32,7 +32,7 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
       f_text = f"{text}\n{uo} attempt left\n{no} found"
     elif u <= 1 and cb_data not in (("count 1","count 2","count 3","count 4","count 5","count 6")):
      u=0
-     callback_query.delete()
+     callback_query.message.delete()
      rm=InlineKeyboardMarkup([[InlineKeyboardButton("Join Dramaost",url = "http://t.me/DramaOST") ] ])
      id=callback_query.from_user.username or callback_query.from_user.first_name
      m1 = f"<a href='tg://user?id={callback_query.from_user.id}'>{id}</a>"
@@ -46,7 +46,7 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
      u=u-1
      uo=str(u)
      no=str(n)
-     f_text = f"{text}\n{uo} attempt left\n{no}found"
+     f_text = f"{text}\n{uo} attempt left\n{no} found"
     if u > 0 and n <= 6:
      buttons = []
      button1 = []
@@ -96,7 +96,7 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
          reply_markup=keyboard
         )
     elif u > 0 and n > 5:
-      callback_query.delete()
+      callback_query.message.delete()
       rm=InlineKeyboardMarkup([[InlineKeyboardButton("Join Dramaost",url = "http://t.me/DramaOST" )]])
       id=callback_query.from_user.username or callback_query.from_user.first_name
       m1 = f"<a href='tg://user?id={callback_query.from_user.id}'>{id}</a>"
