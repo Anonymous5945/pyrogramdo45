@@ -59,9 +59,28 @@ async def user_fn(client: PyroBot, message: Message):
      if j in ((a1[1],a2[1],a3[1],a4[1],a5[1],a6[1])):
          po=po+1
          j=f"count {po}"
-         line(buttons,i,j,c)
+         if c in range(1,9):
+           buttons.append(InlineKeyboardButton(str(i),callback_data=j))
+         elif c in range(9,17):
+           buttons1.append(InlineKeyboardButton(str(i),callback_data=j))
+         elif c in range(17,25):
+           buttons2.append(InlineKeyboardButton(str(i),callback_data=j))
+         elif c in range(25,33):
+           buttons3.append(InlineKeyboardButton(str(i),callback_data=j))
+         elif c in range(33,41):
+          buttons4.append(InlineKeyboardButton(str(i),callback_data=j))
      else:
-         line(buttons,i,j,c)
+         if c in range(1,9):
+           buttons.append(InlineKeyboardButton(str(i),callback_data=j))
+         elif c in range(9,17):
+           buttons1.append(InlineKeyboardButton(str(i),callback_data=j))
+         elif c in range(17,25):
+           buttons2.append(InlineKeyboardButton(str(i),callback_data=j))
+         elif c in range(25,33):
+           buttons3.append(InlineKeyboardButton(str(i),callback_data=j))
+         elif c in range(33,41):
+          buttons4.append(InlineKeyboardButton(str(i),callback_data=j))
+
     keyboard = InlineKeyboardMarkup([buttons,buttons1,buttons2,buttons3,buttons4])
     t=f"Complete the task by selecting Emoji shown in above pic\n\n2 attempt left\n0 found"
     await client.send_photo(
@@ -70,17 +89,4 @@ async def user_fn(client: PyroBot, message: Message):
         reply_markup=keyboard)
     os.remove("ball.png")
 
-def line(buttons,i,j,c):
-     if c in range(1,9):
-       buttons.append(InlineKeyboardButton(str(i),callback_data=j))
-     elif c in range(9,17):
-       buttons1.append(InlineKeyboardButton(str(i),callback_data=j))
-
-     elif c in range(17,25):
-       buttons2.append(InlineKeyboardButton(str(i),callback_data=j))
-
-     elif c in range(25,33):
-       buttons3.append(InlineKeyboardButton(str(i),callback_data=j))
-
-     elif c in range(33,41):
-       buttons4.append(InlineKeyboardButton(str(i),callback_data=j))
+     
