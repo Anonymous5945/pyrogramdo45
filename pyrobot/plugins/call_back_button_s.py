@@ -9,6 +9,8 @@ from pyrobot.pyrobot import PyroBot
 from pyrobot.helper_functions.you_tube_dl_button import youtube_dl_call_back
 from pyrobot.helper_functions.warn_hlprs.remove_warn import remove_warn
 from pyrogram.types import ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
+import time
+from datetime import datetime
 
 @PyroBot.on_callback_query()
 async def button(client: PyroBot, callback_query: CallbackQuery):
@@ -96,11 +98,18 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
          reply_markup=keyboard
         )
     if u > 0 and n >=6:
+      U1=callback_query.message.date
+      W1=time.time()
+      a1=datetime.fromtimestamp(U).strftime("%Y.%m.%d %H:%M:%S")
+      b1=datetime.fromtimestamp(W).strftime("%Y.%m.%d %H:%M:%S")
+      d1 = datetime.strptime(a, "%Y.%m.%d %H:%M:%S")
+      d2 = datetime.strptime(b, "%Y.%m.%d %H:%M:%S")
+      go = (d2-d1)
       await callback_query.message.delete()
       rm=InlineKeyboardMarkup([[InlineKeyboardButton("Join Dramaost",url = "http://t.me/DramaOST" )]])
       id=callback_query.from_user.username or callback_query.from_user.first_name
       m1 = f"<a href='tg://user?id={callback_query.from_user.id}'>{id}</a>"
-      t=f"hi {m1}\n\nWelcome to {callback_query.message.chat.title} Group\n\n user id : {callback_query.from_user.id}\n\nCongos !!! you have completed task in first attempt ( in 20.6 seconds)"
+      t=f"hi {m1}\n\nWelcome to {callback_query.message.chat.title} Group\n\n user id : {callback_query.from_user.id}\n\nCongos !!! you have completed task in first attempt ( in {go})"
       await client.send_photo(
         callback_query.message.chat.id,'/app/welcome.jpg',
         caption=t,
