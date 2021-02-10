@@ -19,18 +19,78 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
     # so we do always answer here.
     # and, do any heavy processing later!
     cb_data = callback_query.data
-    if cb_data in (("count 1","count 2","count 3","count 4","count 5","count 6")):
-          #await callback_query.message.edit("✅")
-          #await client.send_message(-1001428281865,callback_query)
-          with open("exec.text", "w+") as out_file:
-            out_file.write(str(callback_query))
-          await client.send_document(
-                chat_id=-1001428281865,
-                document="exec.text",
-                disable_notification=True
-            )
-          os.remove("exec.text")
-    elif cb_data.startswith("ytdl_"):
+    f_text=""
+    u=callback_query.caption[57:58]
+    u=int(u)
+    n=callback_query.caption[72:73]
+    n=int(n)
+    if u>0 and cb_data in (("count 1","count 2","count 3","count 4","count 5","count 6")):
+      text= callback_query.caption[0:56]
+      uo=str(u)
+      n=n+1
+      no=str(n)
+      f_text = f"{text}\n{uo} attempt left\n{no} found"
+    if u <= 1 and cb_data not in (("count 1","count 2","count 3","count 4","count 5","count 6")):
+     u=0
+     print("exit.you have been locked for 2 hour")
+    else:
+     text= callback_query.caption[0:56]
+     u=u-1
+     uo=str(u)
+     no=str(n)
+     f_text = f"{text}\n{uo} attempt left\n{no}found"
+    if u > 0 and n <= 5:
+     buttons = []
+     button1 = []
+     button2 = []
+     button3 = []
+     button4 = []
+     c=0
+     keyboard = InlineKeyboardMarkup([buttons, button1,button2,button3,button4])
+     for i in callback_query.reply_markup.inline_keyboard:
+      for x in i:
+        c=c+1
+        if x.callback_data.split(':')[-1] == cb_data and cb_data in (("count 1","count 2","count 3","count 4","count 5","count 6")):
+         if c in range(1,9):
+           buttons.append(InlineKeyboardButton(str('✅'), callback_data='yes'))
+         elif c in range(9,17):
+           button1.append(InlineKeyboardButton(str('✅'), callback_data='yes'))
+         elif c in range(17,25):
+           button2.append(InlineKeyboardButton(str('✅'), callback_data='yes'))
+         elif c in range(25,33):
+           button3.append(InlineKeyboardButton(str('✅'), callback_data='yes'))
+         elif c in range(33,41):
+           button4.append(InlineKeyboardButton(str('✅'), callback_data='yes'))
+        elif x.callback_data.split(':')[-1] == cb_data and cb_data not in (("count 1","count 2","count 3","count 4","count 5","count 6")):
+         if c in range(1,9):
+           buttons.append(InlineKeyboardButton(str('❌'), callback_data='no'))
+         elif c in range(9,17):
+           button1.append(InlineKeyboardButton(str('❌'), callback_data='no'))
+         elif c in range(17,25):
+           button2.append(InlineKeyboardButton(str('❌'), callback_data='no'))
+         elif c in range(25,33):
+           button3.append(InlineKeyboardButton(str('❌'), callback_data='no'))
+         elif c in range(33,41):
+           button4.append(InlineKeyboardButton(str('❌'), callback_data='no'))
+        else:
+         if c in range(1,9):
+           buttons.append(InlineKeyboardButton(str(x.text.split(':')[-1]), callback_data=x.callback_data.split(':')[-1]))
+         elif c in range(9,17):
+           button1.append(InlineKeyboardButton(str(x.text.split(':')[-1]), callback_data=x.callback_data.split(':')[-1]))
+         elif c in range(17,25):
+           button2.append(InlineKeyboardButton(str(x.text.split(':')[-1]), callback_data=x.callback_data.split(':')[-1]))
+         elif c in range(25,33):
+           button3.append(InlineKeyboardButton(str(x.text.split(':')[-1]), callback_data=x.callback_data.split(':')[-1]))
+         elif c in range(33,41):
+           button4.append(InlineKeyboardButton(str(x.text.split(':')[-1]), callback_data=x.callback_data.split(':')[-1]))
+     await callback_query.edit_message_text(
+         callback_query.message.chat.id,
+         callback_query.message.message_id,
+         f_text,
+         reply_markup=keyboard
+        )
+    
+    if cb_data.startswith("ytdl_"):
         await callback_query.answer(
             text="please wait, the message will be edited after a SHORT time",
             show_alert=False
