@@ -105,11 +105,15 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
       d1 = datetime.strptime(a, "%Y.%m.%d %H:%M:%S")
       d2 = datetime.strptime(b, "%Y.%m.%d %H:%M:%S")
       go = (d2-d1)
+      if u == 2:
+        nom="first"
+      else:
+         nom="second"
       await callback_query.message.delete()
       rm=InlineKeyboardMarkup([[InlineKeyboardButton("Join Dramaost",url = "http://t.me/DramaOST" )]])
       id=callback_query.from_user.username or callback_query.from_user.first_name
       m1 = f"<a href='tg://user?id={callback_query.from_user.id}'>{id}</a>"
-      t=f"hi {m1}\n\nWelcome to {callback_query.message.chat.title} Group\n\n user id : {callback_query.from_user.id}\n\nCongos !!! you have completed task in first attempt ( in {go})"
+      t=f"hi {m1}\n\nWelcome to {callback_query.message.chat.title} Group\n\n user id : {callback_query.from_user.id}\n\nCongos !!! you have completed task in {nom} attempt ( in {go})"
       await client.send_photo(
         callback_query.message.chat.id,'/app/welcome.jpg',
         caption=t,
