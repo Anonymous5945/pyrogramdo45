@@ -8,7 +8,7 @@ from pyrogram.types import (
 from pyrobot.pyrobot import PyroBot
 from pyrobot.helper_functions.you_tube_dl_button import youtube_dl_call_back
 from pyrobot.helper_functions.warn_hlprs.remove_warn import remove_warn
-
+from pyrogram.types import ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
 
 @PyroBot.on_callback_query()
 async def button(client: PyroBot, callback_query: CallbackQuery):
