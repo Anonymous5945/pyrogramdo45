@@ -88,7 +88,9 @@ async def user_fn(client: PyroBot, message: Message):
     await client.send_photo(
         message.chat.id,'ball.png',
         caption=t,
-        reply_markup=keyboard)
+        reply_markup=keyboard,
+        reply_to_message_id=message.message_id
+       )
     os.remove("ball.png")
     await status_message.delete()
    except ValueError:
