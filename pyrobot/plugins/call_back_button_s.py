@@ -20,7 +20,8 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
     # (and we can only answer once),
     # so we do always answer here.
     # and, do any heavy processing later!
-    cb_data = callback_query.data
+   cb_data = callback_query.data
+   if callback_query.message.from_user.id == callback_query.reply_to_message.from_user.id:
     f_text=""
     u=callback_query.message.caption[57:58]
     u=int(u)
@@ -119,7 +120,7 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
         caption=t,
         reply_markup=rm)
     
-    if cb_data.startswith("ytdl_"):
+   if cb_data.startswith("ytdl_"):
         await callback_query.answer(
             text="please wait, the message will be edited after a SHORT time",
             show_alert=False
@@ -127,6 +128,6 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
         _, call_back_data = cb_data.split("_")
         await youtube_dl_call_back(client, callback_query, call_back_data)
 
-    elif cb_data.startswith("rmwarn_"):
+   elif cb_data.startswith("rmwarn_"):
         _c, first_i, second_i = cb_data.split("_")
         await remove_warn(client, callback_query, str(first_i), int(second_i))
