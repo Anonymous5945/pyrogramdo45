@@ -21,7 +21,7 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
     # so we do always answer here.
     # and, do any heavy processing later!
    cb_data = callback_query.data
-   if callback_query.message.from_user.id == callback_query.reply_to_message.from_user.id:
+   if callback_query.message.from_user.id == callback_query.message.reply_to_message.from_user.id:
     f_text=""
     u=callback_query.message.caption[57:58]
     u=int(u)
