@@ -32,13 +32,13 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
       f_text = f"{text}\n{uo} attempt left\n{no} found"
     elif u <= 1 and cb_data not in (("count 1","count 2","count 3","count 4","count 5","count 6")):
      u=0
-     callback_query.message.delete()
+     await callback_query.delete()
      rm=InlineKeyboardMarkup([[InlineKeyboardButton("Join Dramaost",url = "http://t.me/DramaOST") ] ])
      id=callback_query.from_user.username or callback_query.from_user.first_name
      m1 = f"<a href='tg://user?id={callback_query.from_user.id}'>{id}</a>"
      t=f"{m1},\nyou have failed this Group. As a rightful citizen of this group I'm muting you for 5 minutes\n                                       ~ Green Arrow"
      await client.send_photo(
-        message.chat.id,'/app/arrow.jpg',
+        callback_query.message.chat.id,'/app/arrow.jpg',
         caption=t,
         reply_markup=rm)
     else:
@@ -96,13 +96,13 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
          reply_markup=keyboard
         )
     elif u > 0 and n > 5:
-      callback_query.message.delete()
+      callback_query.delete()
       rm=InlineKeyboardMarkup([[InlineKeyboardButton("Join Dramaost",url = "http://t.me/DramaOST" )]])
       id=callback_query.from_user.username or callback_query.from_user.first_name
       m1 = f"<a href='tg://user?id={callback_query.from_user.id}'>{id}</a>"
       t=f"hi {m1}\n\nWelcome to {callback_query.message.chat.title} Group\n\n user id : {callback_query.from_user.id}\n\nCongos !!! you have completed task in first attempt ( in 20.6 seconds)"
       await client.send_photo(
-        message.chat.id,'/app/welcome.jpg',
+        callback_query.message.chat.id,'/app/welcome.jpg',
         caption=t,
         reply_markup=rm)
     
