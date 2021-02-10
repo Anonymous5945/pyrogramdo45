@@ -24,7 +24,7 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
     u=int(u)
     n=callback_query.message.caption[72:73]
     n=int(n)
-    if u>0 and cb_data in (("count 1","count 2","count 3","count 4","count 5","count 6")):
+    if u > 0 and cb_data in (("count 1","count 2","count 3","count 4","count 5","count 6")):
       text= callback_query.message.caption[0:56]
       uo=str(u)
       n=n+1
