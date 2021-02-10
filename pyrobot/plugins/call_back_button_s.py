@@ -100,10 +100,10 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
     if u > 0 and n >=6:
       U1=callback_query.message.date
       W1=time.time()
-      a1=datetime.fromtimestamp(U).strftime("%Y.%m.%d %H:%M:%S")
-      b1=datetime.fromtimestamp(W).strftime("%Y.%m.%d %H:%M:%S")
-      d1 = datetime.strptime(a, "%Y.%m.%d %H:%M:%S")
-      d2 = datetime.strptime(b, "%Y.%m.%d %H:%M:%S")
+      a1=datetime.fromtimestamp(U1).strftime("%Y.%m.%d %H:%M:%S")
+      b1=datetime.fromtimestamp(W1).strftime("%Y.%m.%d %H:%M:%S")
+      d1 = datetime.strptime(a1, "%Y.%m.%d %H:%M:%S")
+      d2 = datetime.strptime(b1, "%Y.%m.%d %H:%M:%S")
       go = (d2-d1)
       if u == 2:
         nom="first"
