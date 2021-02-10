@@ -84,9 +84,7 @@ async def button(client: PyroBot, callback_query: CallbackQuery):
          elif c in range(33,41):
            button4.append(InlineKeyboardButton(str(x.text.split(':')[-1]), callback_data=x.callback_data.split(':')[-1]))
      await callback_query.edit_message_text(
-         callback_query.message.chat.id,
-         callback_query.message.message_id,
-         f_text,
+         text=f_text,
          reply_markup=keyboard
         )
     
